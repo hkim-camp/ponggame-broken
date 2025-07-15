@@ -1,0 +1,13 @@
+
+4. neumorphic theme
+
+
+classic - dont rounding
+
+crt effect??
+
+restart and end make the score reset
+
+arrow keys
+
+ball dir

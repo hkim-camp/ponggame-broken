@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pong Game</title>
+    <link rel="stylesheet" href="themes/base-style.css">
+    <link id="theme-style" rel="stylesheet" href="">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .cpu-options {
+            margin-top: 15px;
+        }
+    </style>
+    <script src="model.js" defer></script>
+    <script src="ball.js" defer></script>
+    <script src="paddle.js" defer></script>
+    <script src="controls.js" defer></script>
+    <script src="pong.js" defer></script>
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar" id="sidebar-left">
+            <h2>Player 1</h2>
+            <div class="score" id="score-left">0</div>
+            <div class="control-group">
+                <label for="player-left-type">Control</label>
+                <select id="player-left-type" class="player-type-selector" data-side="left">
+                    <option value="human" selected>Human</option>
+                    <option value="cpu">CPU</option>
+                </select>
+            </div>
+            <div id="cpu-options-left" class="cpu-options hidden">
+                <div class="control-group">
+                    <label for="cpu-difficulty-left">Difficulty</label>
+                    <input type="range" id="cpu-difficulty-left" data-side="left" min="0" max="2" value="0"
+                        class="styled-slider difficulty-slider">
+                    <div class="slider-labels">
+                        <span>Easy</span><span>Medium</span><span>Hard</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Game Area -->
+        <main class="main-content">
+            <canvas id="gameboard" width="500" height="500"></canvas>
+            <div class="game-controls">
+                <div class="control-group">
+                    <label>Theme</label>
+                    <div id="theme-buttons" class="button-group">
+                        <button class="theme-btn active" data-theme="NEON">Neon</button>
+                        <button class="theme-btn" data-theme="CLASSIC">Classic</button>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="winning-score-selector">Play To</label>
+                    <input type="number" id="winning-score-selector" value="10" min="1" max="99" class="styled-input">
+                </div>
+
+                <div class="control-group">
+                    <label>Game</label>
+                    <button id="reset-btn" class="styled-button">Restart</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="sidebar" id="sidebar-right">
+            <h2>Player 2</h2>
+            <div class="score" id="score-right">0</div>
+            <div class="control-group">
+                <label for="player-right-type">Control</label>
+                <select id="player-right-type" class="player-type-selector" data-side="right">
+                    <option value="human">Human</option>
+                    <option value="cpu" selected>CPU</option>
+                </select>
+            </div>
+            <div id="cpu-options-right" class="cpu-options">
+                <div class="control-group">
+                    <label for="cpu-difficulty-right">Difficulty</label>
+                    <input type="range" id="cpu-difficulty-right" data-side="right" min="0" max="2" value="0"
+                        class="styled-slider difficulty-slider">
+                    <div class="slider-labels">
+                        <span>Easy</span><span>Medium</span><span>Hard</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+</body>
+
+</html>

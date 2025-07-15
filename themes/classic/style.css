@@ -1,0 +1,69 @@
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+body {
+    background-color: #111;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#gameboard {
+    border-color: #FFF;
+    background-color: #000;
+}
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Layout */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+
+.sidebar {
+    border-color: #FFF;
+    background-color: #000;
+}
+
+
+.game-controls {
+    border: 2px solid #FFF;
+    background-color: #000;
+}
+
+
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Component Styles */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+
+
+select,
+.styled-input {
+    background-color: #000;
+    color: #FFF;
+    border: 1px solid #FFF;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Button Group for Themes */
+.button-group .theme-btn {
+    background: #000;
+    border: 2px solid #FFF;
+    color: #FFF;
+}
+
+.button-group .theme-btn:first-child {
+    border-radius: 0;
+}
+
+.button-group .theme-btn:last-child {
+    border-radius: 0;
+    border-left: none;
+}
+
+.button-group .theme-btn.active {
+    background-color: #FFF;
+    color: #000;
+}
+
+button.styled-button {
+    background: #000;
+    border: 2px solid #FFF;
+    color: #FFF;
+    font-family: 'Courier New', Courier, monospace;
+}

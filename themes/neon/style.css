@@ -1,0 +1,86 @@
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+body {
+    background-color: #0d0221;
+    color: #f0f0f0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+#gameboard {
+    border-color: #FF00FF;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #FF00FF, inset 0 0 10px #00FFFF;
+    background-color: #000;
+}
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Layout */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+
+.sidebar {
+    border-color: #00FFFF;
+    border-radius: 8px;
+    background-color: rgba(13, 2, 33, 0.8);
+    box-shadow: 0 0 10px #00FFFF;
+}
+
+.sidebar h2 {
+    color: #FF00FF;
+    text-shadow: 0 0 5px #FF00FF;
+}
+
+
+.game-controls {
+    background-color: rgba(13, 2, 33, 0.8);
+    border: 2px solid #FF00FF;
+    border-radius: 8px;
+}
+
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Component Styles */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+.score {
+    color: #00FFFF;
+    text-shadow: 0 0 8px #00FFFF, 0 0 15px #FF00FF;
+}
+
+select,
+.styled-input {
+    background-color: #0d0221;
+    color: #f0f0f0;
+    border: 1px solid #FF00FF;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Button Group for Themes */
+.button-group .theme-btn {
+    background: transparent;
+    border: 2px solid #00FFFF;
+    color: #00FFFF;
+}
+
+.button-group .theme-btn:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.button-group .theme-btn:last-child {
+    border-radius: 0 5px 5px 0;
+    border-left: none;
+}
+
+.button-group .theme-btn.active {
+    background-color: #00FFFF;
+    color: #0d0221;
+    box-shadow: 0 0 10px #00FFFF;
+}
+
+button.styled-button {
+    background: transparent;
+    border: 2px solid #FF00FF;
+    color: #FF00FF;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
