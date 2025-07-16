@@ -55,6 +55,8 @@ function updateScore(model) {
 }
 
 function draw_game(model) {
+    ctx.save();
+
     // FIX: Draw the semi-transparent overlay FIRST. This creates the motion-blur trail
     // for all elements (particles, ball, paddles) that are drawn after it.
     ctx.fillStyle = model.theme.background;
@@ -80,6 +82,8 @@ function draw_game(model) {
     draw_ball(ctx, model);
     draw_paddle(ctx, model.paddleL);
     draw_paddle(ctx, model.paddleR);
+
+    ctx.restore();
 }
 
 function draw_ball(ctx, model) {

@@ -9,6 +9,8 @@ function updateScore(model) {
 }
 
 function draw_game(model) {
+    ctx.save();
+
     // Solid black background
     ctx.fillStyle = model.theme.background;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -25,6 +27,8 @@ function draw_game(model) {
     draw_ball(ctx, model);
     draw_paddle(ctx, model.paddleL);
     draw_paddle(ctx, model.paddleR);
+
+    ctx.restore();
 }
 
 function draw_ball(ctx, model) {
