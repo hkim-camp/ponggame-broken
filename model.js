@@ -25,7 +25,7 @@ const THEMES = {
         hasStarfield: false
     },
     NEU: {
-        name: 'CLASSIC',
+        name: 'NEU',
         cssPath: 'themes/neumorphism/style.css',
         jsPath: 'themes/neumorphism/view.js',
         background: '#000000',
