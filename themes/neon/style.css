@@ -59,16 +59,19 @@ select,
 .button-group .theme-btn {
     background: transparent;
     border: 2px solid #00FFFF;
+    border-left: none;
+    border-right: none;
     color: #00FFFF;
 }
 
 .button-group .theme-btn:first-child {
     border-radius: 5px 0 0 5px;
+    border-left: 2px solid #00FFFF;
 }
 
 .button-group .theme-btn:last-child {
     border-radius: 0 5px 5px 0;
-    border-left: none;
+    border-right: 2px solid #00FFFF;
 }
 
 .button-group .theme-btn.active {

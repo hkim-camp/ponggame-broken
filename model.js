@@ -23,6 +23,17 @@ const THEMES = {
         paddleRColor: '#FFFFFF',
         ballColor: '#FFFFFF',
         hasStarfield: false
+    },
+    NEU: {
+        name: 'CLASSIC',
+        cssPath: 'themes/neumorphism/style.css',
+        jsPath: 'themes/neumorphism/view.js',
+        background: '#000000',
+        foreground: '#FFFFFF',
+        paddleLColor: '#FFFFFF',
+        paddleRColor: '#FFFFFF',
+        ballColor: '#FFFFFF',
+        hasStarfield: false
     }
 };
 

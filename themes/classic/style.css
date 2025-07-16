@@ -53,7 +53,6 @@ select,
 
 .button-group .theme-btn:last-child {
     border-radius: 0;
-    border-left: none;
 }
 
 .button-group .theme-btn.active {

@@ -1,0 +1,89 @@
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+:root {
+    --primary-color: #0084ff;
+    --background: #f0f0f0;
+    --text-color: #1b1b1b;
+    --text-on-primary: #ffffff;
+    --neumorphic-shadow: 5px 5px 8px #c7c7c7, -5px -5px 8px #ffffff;
+    --neumorphic-shadow-inset: inset 5px 5px 8px #c7c7c7, inset -5px -5px 8px #ffffff;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-color);
+    font-family: 'Orbitron', sans-serif;
+}
+
+#gameboard {
+    border-radius: 8px;
+    border: none;
+    background-color: var(--background);
+    box-shadow: var(--neumorphic-shadow-inset);
+}
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Layout */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+
+.sidebar {
+    border-radius: 8px;
+    border: none;
+    background-color: var(--background);
+    box-shadow: var(--neumorphic-shadow);
+}
+
+.sidebar h2 {
+    color: var(--primary-color);
+    text-shadow: none;
+}
+
+
+.game-controls {
+    background-color: var(--background);
+    border-radius: 8px;
+    border: none;
+    box-shadow: var(--neumorphic-shadow);
+}
+
+
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+/* Component Styles */
+/*-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-~-*/
+.score {
+    color: var(--text-color);
+    text-shadow: none;
+}
+
+select,
+.styled-input {
+    background-color: var(--background);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: var(--neumorphic-shadow-inset);
+}
+
+/* Button Group for Themes */
+.button-group .theme-btn {
+    background-color: var(--background);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    box-shadow: var(--neumorphic-shadow);
+}
+
+.button-group .theme-btn.active {
+    box-shadow: var(--neumorphic-shadow-inset);
+}
+
+button.styled-button {
+    background-color: var(--background);
+    border: none;
+    color: var(--text-color);
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: var(--neumorphic-shadow);
+}
