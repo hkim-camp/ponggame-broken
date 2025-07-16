@@ -191,7 +191,8 @@ function loadThemeAssets(themeName, onReadyCallback) {
     // 3. Create and load new view script
     const newScript = document.createElement('script');
     newScript.id = 'theme-view-script';
-    newScript.src = theme.jsPath;
+    // Add a timestamp to prevent the browser from caching the old script file
+    newScript.src = `${theme.jsPath}?v=${new Date().getTime()}`;
     newScript.onload = () => {
         console.log(`Theme "${theme.name}" loaded.`);
         // The new view functions are now available globally.

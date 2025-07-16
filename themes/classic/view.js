@@ -1,7 +1,7 @@
-const canvas = document.getElementById("gameboard");
-const ctx = canvas.getContext("2d");
-const scoreLeftEl = document.getElementById("score-left");
-const scoreRightEl = document.getElementById("score-right");
+var canvas = document.getElementById("gameboard");
+var ctx = canvas.getContext("2d");
+var scoreLeftEl = document.getElementById("score-left");
+var scoreRightEl = document.getElementById("score-right");
 
 function updateScore(model) {
     scoreLeftEl.textContent = model.scoreL;
@@ -60,5 +60,5 @@ function draw_victory_screen(model) {
     ctx.textAlign = "center";
     ctx.fillText(`${winner} Wins!`, canvas.width / 2, canvas.height / 2 - 20);
     ctx.font = "20px 'Courier New', Courier, monospace";
-    ctx.fillText("Press 'End' to play again", canvas.width / 2, canvas.height / 2 + 20);
+    ctx.fillText("Press 'Restart' to play again", canvas.width / 2, canvas.height / 2 + 20);
 }

@@ -28,11 +28,16 @@ const THEMES = {
         name: 'NEU',
         cssPath: 'themes/neumorphism/style.css',
         jsPath: 'themes/neumorphism/view.js',
-        background: '#000000',
-        foreground: '#FFFFFF',
-        paddleLColor: '#FFFFFF',
-        paddleRColor: '#FFFFFF',
-        ballColor: '#FFFFFF',
+        // --- Corrected and added properties for Neumorphism ---
+        background: '#f0f0f0',
+        foreground: '#A3B1C6',
+        paddleLColor: '#f0f0f0', // The fill color for the paddle
+        paddleRColor: '#f0f0f0', // The fill color for the paddle
+        ballColor: '#f0f0f0',   // The fill color for the ball
+        shadowDark: '#c7c7c7',
+        shadowLight: '#ffffff',
+        insetShadowDark: '#c7c7c7',
+        insetShadowLight: '#ffffff',
         hasStarfield: false
     }
 };

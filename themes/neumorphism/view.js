@@ -1,8 +1,7 @@
-const canvas = document.getElementById("gameboard");
-const ctx = canvas.getContext("2d");
-const theme = getComputedStyle(document.documentElement);
-const scoreLeftEl = document.getElementById("score-left");
-const scoreRightEl = document.getElementById("score-right");
+var canvas = document.getElementById("gameboard");
+var ctx = canvas.getContext("2d");
+var scoreLeftEl = document.getElementById("score-left");
+var scoreRightEl = document.getElementById("score-right");
 
 function updateScore(model) {
     scoreLeftEl.textContent = model.scoreL;
@@ -17,21 +16,6 @@ function clear_shadows(ctx) {
     ctx.shadowOffsetY = 0;
 }
 
-// Helper to apply neumorphic outset shadow
-function apply_outset_shadow(ctx) {
-    const shadowColorLight = theme.getPropertyValue('--neumorphic-shadow').split(',')[1].trim().split(')')[0] + ')';
-    const shadowColorDark = theme.getPropertyValue('--neumorphic-shadow').split(',')[0].trim().split(')')[0] + ')';
-
-    // Dark shadow (bottom-right)
-    ctx.shadowColor = shadowColorDark;
-    ctx.shadowBlur = 8;
-    ctx.shadowOffsetX = 5;
-    ctx.shadowOffsetY = 5;
-
-    // We need to draw the light shadow separately after the dark one.
-    // This is handled in the draw functions.
-}
-
 function draw_game(model) {
     // Save context and reset transforms to ensure this theme isn't
     // affected by transformations from other themes.
@@ -39,11 +23,11 @@ function draw_game(model) {
     ctx.setTransform(1, 0, 0, 1, 0, 0);
 
     // Neumorphic background color
-    ctx.fillStyle = theme.getPropertyValue('--background').trim();
+    ctx.fillStyle = model.theme.background;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Inset center line for a "groove" effect
-    ctx.strokeStyle = theme.getPropertyValue('--neumorphic-shadow-inset').split(',')[0].trim().split(' ')[2];
+    ctx.strokeStyle = model.theme.insetShadowDark;
     ctx.lineWidth = 1;
     ctx.setLineDash([]); // No dashes
     ctx.beginPath();
@@ -51,37 +35,37 @@ function draw_game(model) {
     ctx.lineTo(canvas.width / 2 - 1, canvas.height);
     ctx.stroke();
 
-    ctx.strokeStyle = theme.getPropertyValue('--neumorphic-shadow-inset').split(',')[1].trim().split(' ')[2];
+    ctx.strokeStyle = model.theme.insetShadowLight;
     ctx.lineWidth = 1;
     ctx.beginPath();
     ctx.moveTo(canvas.width / 2 + 1, 0);
     ctx.lineTo(canvas.width / 2 + 1, canvas.height);
     ctx.stroke();
 
-    draw_ball(ctx, model);
-    draw_paddle(ctx, model.paddleL);
-    draw_paddle(ctx, model.paddleR);
+    draw_ball(ctx, model.ball, model.theme);
+    draw_paddle(ctx, model.paddleL, model.theme);
+    draw_paddle(ctx, model.paddleR, model.theme);
 
     // Restore context
     ctx.restore();
 }
 
-function draw_ball(ctx, model) {
-    const ball = model.ball;
+function draw_ball(ctx, ball, theme) {
     // The ball is the same color as the background, with shadows to make it pop
-    ctx.fillStyle = theme.getPropertyValue('--background').trim();
+    ctx.fillStyle = theme.background;
 
     const path = new Path2D();
     path.arc(ball.posx, ball.posy, BALL_RADIUS, 0, Math.PI * 2);
 
     // Apply dark outset shadow
-    apply_outset_shadow(ctx);
+    ctx.shadowColor = theme.shadowDark;
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
     ctx.fill(path);
 
-    // Apply light outset shadow
-    const shadowColorLight = theme.getPropertyValue('--neumorphic-shadow').split(',')[1].trim().split(')')[0] + ')';
-    ctx.shadowColor = shadowColorLight;
-    ctx.shadowBlur = 8;
+    // Apply light outset shadow by drawing again
+    ctx.shadowColor = theme.shadowLight;
     ctx.shadowOffsetX = -5;
     ctx.shadowOffsetY = -5;
     ctx.fill(path);
@@ -90,9 +74,9 @@ function draw_ball(ctx, model) {
     clear_shadows(ctx);
 }
 
-function draw_paddle(ctx, paddle) {
+function draw_paddle(ctx, paddle, theme) {
     const radius = 8;
-    ctx.fillStyle = theme.getPropertyValue('--background').trim();
+    ctx.fillStyle = theme.background;
 
     // Create a rounded rectangle path
     const path = new Path2D();
@@ -109,13 +93,14 @@ function draw_paddle(ctx, paddle) {
     path.closePath();
 
     // Apply dark outset shadow
-    apply_outset_shadow(ctx);
+    ctx.shadowColor = theme.shadowDark;
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 5;
+    ctx.shadowOffsetY = 5;
     ctx.fill(path);
 
-    // Apply light outset shadow
-    const shadowColorLight = theme.getPropertyValue('--neumorphic-shadow').split(',')[1].trim().split(')')[0] + ')';
-    ctx.shadowColor = shadowColorLight;
-    ctx.shadowBlur = 8;
+    // Apply light outset shadow by drawing again
+    ctx.shadowColor = theme.shadowLight;
     ctx.shadowOffsetX = -5;
     ctx.shadowOffsetY = -5;
     ctx.fill(path);
@@ -130,9 +115,9 @@ function draw_victory_screen(model) {
     ctx.fillStyle = "rgba(224, 229, 236, 0.9)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.textAlign = "center";
-    ctx.fillStyle = model.theme.darkShadow;
+    ctx.fillStyle = model.theme.foreground;
     ctx.font = "bold 40px 'Segoe UI', sans-serif";
     ctx.fillText(`${winner} Wins!`, canvas.width / 2, canvas.height / 2 - 20);
     ctx.font = "20px 'Segoe UI', sans-serif";
-    ctx.fillText("Press 'End' to play again", canvas.width / 2, canvas.height / 2 + 20);
+    ctx.fillText("Press 'Restart' to play again", canvas.width / 2, canvas.height / 2 + 20);
 }

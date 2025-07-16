@@ -1,7 +1,7 @@
-const canvas = document.getElementById("gameboard");
-const ctx = canvas.getContext("2d");
-const scoreLeftEl = document.getElementById("score-left");
-const scoreRightEl = document.getElementById("score-right");
+var canvas = document.getElementById("gameboard");
+var ctx = canvas.getContext("2d");
+var scoreLeftEl = document.getElementById("score-left");
+var scoreRightEl = document.getElementById("score-right");
 
 // --- Animated Background ---
 const stars = [];
